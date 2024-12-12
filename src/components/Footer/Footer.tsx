@@ -1,62 +1,66 @@
-import { Container } from './styles'
-import reactIcon from '../../assets/react-icon.svg'
-import linkedin from '../../assets/linkedin.svg'
-import githubIcon from '../../assets/github.svg'
-import whatsapp from '../../assets/whatsapp.svg'
-import telegram from '../../assets/telegram.svg'
-import instagramIcon from '../../assets/instagram.svg'
-// import discordIcon from '../../assets/discord.png'
+import { Container } from './styles';
+import { FaLinkedin, FaInstagram, FaTwitter, FaDiscord } from 'react-icons/fa'; // Importing icons from react-icons
+import styled from 'styled-components'; // Assuming you're using styled-components for styling
+
+const FooterContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #282c34; // Dark background for a classy look
+  color: white; // White text for contrast
+  border-top: 2px solid #0077B5; // Optional: a classy border
+  font-size: 14px; // Font size for the footer text
+`;
+
+const SocialMediaContainer = styled.div`
+  display: flex;
+  gap: 15px; // Space between icons
+`;
+
+const FooterText = styled.div`
+  text-align: left; // Align text to the left
+`;
 
 export function Footer() {
   return (
-    <Container className="footer">
-      <a href="https://vinayaksingh.in" className="logo">
-        <span>www.vinayak</span>
-        <span>singh.in</span>
-      </a>
-      <div>
-        <p>
-          This Website was made with <img src={reactIcon} alt="React" />
-          {/* <span>❤️</span> */}
-        </p>
-      </div>
-      <div className="social-media">
+    <FooterContainer className="footer">
+      <FooterText>
+        <p style={{ fontSize: '18px', fontWeight: 'bold' }}>{'<John Allen/>'}</p>
+        <p>© {new Date().getFullYear()} All Rights Reserved.</p>
+        <p>Developed and Designed by John Allen</p>
+      </FooterText>
+      <SocialMediaContainer>
         <a
-          href="https://www.linkedin.com/in/codevinayak"
+          href="https://www.linkedin.com/in/johnallen0099"
           target="_blank"
           rel="noreferrer"
         >
-          <img src={linkedin} alt="Linkedin" />
+          <FaLinkedin size={30} style={{ color: '#0077B5' }} />
         </a>
+        
         <a
-          href="https://github.com/CodeVinayak/"
+          href="https://www.instagram.com/dev.allen9/"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: '#E1306C' }} // Instagram color
+           >
+           <FaInstagram size={30} />
+            </a>
+        <a
+          href="https://x.com/devallen9009" // Replace with your actual X (Twitter) link
           target="_blank"
           rel="noreferrer"
         >
-          <img src={githubIcon} alt="GitHub" />
+          <FaTwitter size={30} style={{ color: '#1DA1F2' }} />
         </a>
         <a
-          href="https://api.whatsapp.com/send/?phone=%2B919630576848&text=Hello+Vinayak"
           target="_blank"
           rel="noreferrer"
         >
-          <img src={whatsapp} alt="Whatsapp" />
+          <FaDiscord size={30} style={{ color: '#ffffff' }} />
         </a>
-        <a
-          href="https://t.me/CodeVinayak"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={telegram} alt="telegram" />
-        </a>
-        <a
-          href="https://www.instagram.com/vinayaksingh.in"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img src={instagramIcon} alt="Instagram" />
-        </a>
-      </div>
-    </Container>
-  )
+      </SocialMediaContainer>
+    </FooterContainer>
+  );
 }
